@@ -4,4 +4,6 @@ body {
 
 #txt {
     color: yellow;
+    text-align: center;
+    font-size: 5em;
 }
