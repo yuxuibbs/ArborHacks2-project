@@ -1,0 +1,2 @@
+running clock
+every time you get a cool number, it texts you a random meme
