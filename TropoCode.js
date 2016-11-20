@@ -9,6 +9,7 @@ var dogs = false;  //is the user searching for dog memes?
 var presidential = false;  //is the user searching for presidential memes?
 var kermit = false;  //is the user searching for kermit the frog memes?
 var badAdvice = false;  //is the user searching for bad advice memes?
+var doge = false;  //is the user searching for doge memes?
 var random;  //the random number which links are based on
 var link = "instantiated value"; //default msg if it is not changed (error check)
 
@@ -43,7 +44,25 @@ var catlinks = [  //links to cat memes
     "http://www.lolcats.com/images/u/11/46/lolcatsdotcomqc2oos4nrd7aymcl.jpg"];
     
 
-    
+var dogelinks = [ //links to doge memes
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/shibe.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/shibe-meme-wont-go.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/trapped-shiba.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/doge-dj.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/doge-meme-plant.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/shibe-goes-to-work.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/no.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/why-are-you-a-dog-comic.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/bob-ross.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/shiba-versus-cat.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/shiba-listens-to-music.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/becoming-doge.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/shiba-inu-tucked-in-bed.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/doge-resume.png",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/how-to-get-a-shibe.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/so-fashionable.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/fashion-doge.jpg",
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/11/so-scared.jpg"];
     
     
 var doglinks = [  //links to dog memes
@@ -132,7 +151,7 @@ curr = curr.trim();  //make curr have no whitespace
 //check to see if the user wants cats (and misspellings)
 if((curr == "cats") || (curr == "cat")){
     
-    Min = 0;  //
+    Min = 0;  
     Max = catlinks.length-1;
     cats = true;
     
@@ -143,7 +162,14 @@ if((curr == "cats") || (curr == "cat")){
     Max = doglinks.length-1;
     dogs = true;
     
-//check to see if the user wants kermit the frog (and misspellings)
+//check to see if the user wants doge (and misspellings)
+}  else if((curr == "doge") || (curr == "doges")) { //check to see if the user wants doge (and misspellings)
+    
+    Min = 0;
+    Max = dogelinks.length-1;
+    doge = true;
+    
+//check to see if the user wants kermit the frog (and misspellings)    
 } else if((curr == "kermit") || (curr == "frog") || (curr == "lipton") || (curr == "tea")){
     
     Min = 0;
@@ -188,11 +214,14 @@ if(cats){
 } else if(badAdvice) {
     link = badAdviceLinks[i];
     
-} else {
+} else if(doge) {
+    link = dogelinks[i];
+
+}else {
     link = "https://cdn.meme.am/cache/instances/folder994/500x/" + i + ".jpg";
 
 }
 say(link);
 
-wait(2000);
-say("Options: cats, dogs, kermit, frog, presidential, bad advice, and random");
+wait(4000);
+say("Options: cats, dogs, kermit, frog, presidential, doge, bad advice, and random");
