@@ -15,8 +15,29 @@ var firstWorldProblems = false;
 var insultMe = false;
 var harambe = false;
 var inspiringWolves = false;
+var oneDoesNotSimply = false;
 var random;  //the random number which links are based on
 var link = "instantiated value"; //default msg if it is not changed (error check)
+
+var oneDoesNotSimplyLinks = [
+    "https://i.imgflip.com/vpq.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/1b/63/a5/1b63a56bbc4a025458f6cc71a6bffec4.jpg",
+    "https://i.imgflip.com/zttfi.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/46/f7/98/46f798f2ae434cc82d741618defb63f9.jpg",
+    "http://vignette2.wikia.nocookie.net/tmnt/images/2/2b/One-does-not-simply-make-a-meme_o_1189284.jpg/revision/latest?cb=20140103235223",
+    "http://funnypicturesplus.com/wp-content/uploads/2012/05/one-does-not-simply-leave-a-marvel-movie.jpg",
+    "http://images.magnetsusa.com/images/blog/meme_one_does_not.jpg",
+    "http://www.lolsclub.com/wp-content/uploads/lolsclub.com-meme-maker,%20meme,%20one-does-not-simply-meme1391205408998.jpg",
+    "http://images-cdn.9gag.com/photo/av00jvW_700b.jpg",
+    "http://img.memecdn.com/onedoesnotsimply_o_158907.jpg",
+    "https://cdn.meme.am/instances/400x/15625503.jpg",
+    "http://img.memecdn.com/one-does-not-simply_o_204186.jpg",
+    "https://i.imgflip.com/77hai.jpg",
+    "https://breakingintotheadvertisingworld.files.wordpress.com/2014/12/meme-2.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/3e/f8/94/3ef89421c371bed0dac93efdcbe07d25.jpg",
+    "https://s-media-cache-ak0.pinimg.com/originals/e6/d9/1c/e6d91c68d2a53f61b4af5c31181e83dd.jpg"];
+
+
 
 var harambeLinks = [
     "https://thoughtcatalog.files.wordpress.com/2016/08/hp860uf.jpg?w=675",
@@ -249,7 +270,13 @@ if((curr == "cats") || (curr == "cat")){
     Max = insultMeLinks.length-1;
     insultMe = true;
     
-}  else if((curr == "harambe") || (curr == "gorilla")) { 
+}  else if((curr == "one does not simply") || (curr == "one") || (curr == "not simply") || (curr == "one does not")) { //check to see if the user wants dogs (and misspellings)
+    
+    Min = 0;
+    Max = oneDoesNotSimplyLinks.length-1;
+    oneDoesNotSimply = true;
+    
+} else if((curr == "harambe") || (curr == "gorilla")) { 
     
     Min = 0;
     Max = harambeLinks.length-1;
@@ -331,6 +358,9 @@ if(cats){
 } else if(harambe) {
     link = harambeLinks[i];
     
+} else if(oneDoesNotSimply) {
+    link = oneDoesNotSimplyLinks[i];
+    
 } else if(insultMe) {
     link = insultMeLinks[i];
     
@@ -343,5 +373,7 @@ if(cats){
 }
 say(link);
 
-wait(4000);
-say("Choices: cats, dogs, kermit the frog, presidential, insult me, inspiring wolves, harmabe, doge, first world problems, confession bear, bad advice, and random");
+wait(5000);
+say("Choices: cats, dogs, kermit the frog, presidential, one does not simply, insult me");
+wait(1500);
+say("inspiring wolves, harmabe, doge, first world problems, confession bear, bad advice, and random");
