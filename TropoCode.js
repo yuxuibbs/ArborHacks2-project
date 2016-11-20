@@ -10,7 +10,7 @@ var presidential = false;  //is the user searching for presidential memes?
 var kermit = false;  //is the user searching for kermit the frog memes?
 var badAdvice = false;  //is the user searching for bad advice memes?
 var doge = false;  //is the user searching for doge memes?
-var vonfessionBear = false;
+var confessionBear = false;
 var random;  //the random number which links are based on
 var link = "instantiated value"; //default msg if it is not changed (error check)
 
@@ -25,11 +25,9 @@ var confessionBearLinks = [
     "http://s2.quickmeme.com/img/a6/a6ad3f8472caa777f2b83c2ea18ab078927c56ceeba5ea39ed1715453d948307.jpg",
     "http://2damnfunny.com/wp-content/uploads/2013/07/Confession-Bear-Meme-Is-Actually-A-Very-Worried-Bear-Cub.jpg",
     "http://1mut.com/wp-content/uploads/2012/08/Confession-Bear-meme-collection-1mut.com-18.jpg",
-    "http://images-cdn.9gag.com/photo/aRVxz05_700b_v1.jpg",
-    
-    
-    
-    ];
+    "http://images-cdn.9gag.com/photo/aRVxz05_700b_v1.jpg",];
+
+
 
 
 var kermitLinks = [  //links to kermit memes
@@ -202,8 +200,7 @@ if((curr == "cats") || (curr == "cat")){
     Max = 17;
     presidential = true;
     
-} else if((curr = "confession") || (curr = "bear") || (curr = "confession bear")) {
-    
+} else if((curr == "confession") || (curr == "bear") || (curr == "confession bear")) {
     Min = 1;
     Max = confessionBearLinks.length-1;
     confessionBear = true;
