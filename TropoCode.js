@@ -5,6 +5,8 @@ call(+17347902224, { //call my phone number
 var Min;
 var Max;
 var cats = false;
+var dogs = false;
+var presidential = false;
 var i;
 var link = "instantiated value"; //default string
 var catlinks = [
@@ -23,10 +25,11 @@ var catlinks = [
     "http://www.lolcats.com/images/u/08/28/lolcatsdotcomfmjonvyyl03qg704.jpg"  ,
     "http://www.lolcats.com/images/u/11/46/lolcatsdotcomqc2oos4nrd7aymcl.jpg"];
 var doglinks = [
-    "http://1mc8511ob3uc397k3v2p939j.wpengine.netdna-cdn.com/wp-content/uploads/2016/03/plane-dog-meme-1.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/plane-dog-meme.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-math-meme.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-memes.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/depressed-dog-memes.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-memes-funniest.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/become-the-squirrel.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/benson-dog-meme.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-mirror.jpg",
@@ -47,8 +50,30 @@ var doglinks = [
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-meme.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-meme-funny.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-mem-wink.jpg",
-    
-    
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-lawyer.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-jesus-memes.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-home-early.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-hipster.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-food-memes.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-fight-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-dream-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-balls-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/chef-dog-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/best-dog-memes-ever.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/begging-dog.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/bbq-dog.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-meme-best.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/pun-dog-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-pole-dancer.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-pug-life.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-ruff.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-rug.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-skeptical.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/baby-dog-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/driving-dog.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/husky-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/puppy-meme.jpg",
+    "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/i-have-no-idea-what-Im-doing.jpg"
     ];
     
     
@@ -60,47 +85,48 @@ var doglinks = [
 //say("look at initialtext");
 //wait(2000);
 
-if(currentCall.initialText == "Cats"){
-    //say("initial text = Cats");
-    //wait(2000);
+var curr = currentCall.initialText
+curr.toLowerCase();
+curr.trim();
+if((curr == "cats") || (curr == "cat")){
     Min = 0;
-    //say("Min = " + Min);
-    //wait(2000);
-    //say("calculating Max value");
-    //wait(2000);
     Max = catlinks.length-1;
-    //say("Max = "+Max);
-    //wait(2000);
     cats = true;
-    //say("cats = " + cats);
-    wait(2000);
-    } else{
-    say("initial text != Cats");
+} else if((curr == "dogs") || (curr == "dog")) {
+    Min = 0;
+    Max = doglinks.length-1;
+    dogs = true;
+} else if((curr == "presidential") || (curr == "presedential") || (curr == "presedintial") || (curr == "presedintial")) {
+    Min = 1;
+    Max = 17;
+    presidential = true;
+    
+    
+    
+} else {
     Min = 10000000;
     Max = 73152994;
-    }
+}
 
-//say("Min = " + Min);
-//say("Max = " + Max);
-//wait(2000);
 
 
 
 i = Min + Math.floor((Math.random() * ((Max - Min) + 1))); //calc i
 
-//say("i =" + i);
-//wait(2000);
 
 
 if(cats){
     link = catlinks[i];
-    //say("in cats if statement --- true");
+
+} else if(dogs){
+    link = doglinks[i];
+
+} else if(presidential){
+    link = "http://cdn.pinknews.co.uk/images/2016/11/obama-biden-meme-" + i + ".jpg";
+    
 } else {
-    var baselink = "https://cdn.meme.am/cache/instances/folder994/500x/";
-    link = baselink + i;
-    link.concat(i);
-    link.concat(".jpg");
-    //say("in cats if statement --- false");
+    link = "https://cdn.meme.am/cache/instances/folder994/500x/" + i + ".jpg";
+
 }
 
 
