@@ -12,7 +12,9 @@ var badAdvice = false;  //is the user searching for bad advice memes?
 var doge = false;  //is the user searching for doge memes?
 var confessionBear = false;
 var firstWorldProblems = false;
+var insultMe = false;
 var harambe = false;
+var inspiringWolves = false;
 var random;  //the random number which links are based on
 var link = "instantiated value"; //default msg if it is not changed (error check)
 
@@ -29,6 +31,35 @@ var harambeLinks = [
     "http://pixel.nymag.com/imgs/daily/selectall/2016/07/27/harambe_meme_001.nocrop.w536.h2147483647.jpg",
     "http://i1.kym-cdn.com/photos/images/facebook/001/152/053/cf7.png",
     "https://bossip.files.wordpress.com/2016/06/praiseteam.png?w=551&h=440"];
+
+var inspiringWolvesLinks = [
+    "http://cdn.smosh.com/sites/default/files/bloguploads/cwolf-7.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/ea/47/51/ea4751630fce699f589e8fda6d7fdd0b.jpg",
+    "https://s-media-cache-ak0.pinimg.com/564x/6c/13/d7/6c13d7465b0256bec5bcabb25df82e73.jpg",
+    "http://cdn.smosh.com/sites/default/files/ftpuploads/bloguploads/c-wolf-bleedinbattle.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/81/1e/de/811ede82a4fb6d52acd330909b7ddd09.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/33/4c/8a/334c8a2c3179f604f8151ff95b710822.jpg",
+    "http://4.bp.blogspot.com/-AGAb6WYax8U/Ty9m4bE3w1I/AAAAAAAAABw/AKdoPp800DU/s1600/level+up+wolf.jpg",
+    "http://cdn.smosh.com/sites/default/files/bloguploads/cwolf-23.jpg",
+    "http://fc06.deviantart.net/fs71/f/2010/364/c/6/baby_courage_wolf___episode_58_by_cryptic_metaphor292-d361u4x.jpg",
+    "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSKnZyiFjxVRCaZ_RqwBAFQd4ciVRiHJ8fl513T1bFtsP6PtnD1",
+    "http://i0.kym-cdn.com/photos/images/facebook/000/371/617/302.jpg",
+    "https://s-media-cache-ak0.pinimg.com/736x/f8/b7/03/f8b70335498d625b2b95c33416ce0394.jpg",
+    "http://memberfiles.freewebs.com/00/46/68304600/photos/Courage-wolf/-Insanity-Wolf_-Advice-puppy/memes-courage-wolf-advice-dog.jpg",
+    "http://catplanet.org/wp-content/uploads/2014/09/Courage-wolf-memes-became-popular.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/f1/ab/62/f1ab62e0153e3e34a785aae2449db91c.jpg",
+    "https://ih1.redbubble.net/image.48531634.2044/raf,750x1000,075,t,101010:01c5ca27c6.u2.jpg"];
+
+
+var insultMeLinks = [
+    "https://s-media-cache-ak0.pinimg.com/736x/cf/8c/47/cf8c476a3a07bad3646731d39fc29efd.jpg",
+    "http://2.bp.blogspot.com/-v9NmS-NjrkA/U001vbLIiRI/AAAAAAAAASI/anvPnWydNLc/s1600/insults3.png",
+    "https://s-media-cache-ak0.pinimg.com/236x/08/20/55/08205502897ab565e6f8d627a411e90a.jpg",
+    "https://img.ifcdn.com/images/270c8a7b1199b23dab1f05bae15236ab564e0743260c4c3c29cbf3cb38d2e587_1.jpg",
+    "http://thewondrous.com/wp-content/uploads/2015/01/funny-insult-quotes1.jpg",
+    "https://pbs.twimg.com/profile_images/3763600008/35771929aa0943b35bf97b08ef30c379_400x400.png",
+    "http://cdn.humoropedia.com/wp-content/uploads/2014/12/Funny-Insults.jpg",
+    "http://cdn3.list25.com/wp-content/uploads/2013/08/Slide228.jpg"];
 
 
 var confessionBearLinks = [
@@ -206,7 +237,19 @@ if((curr == "cats") || (curr == "cat")){
     Max = doglinks.length-1;
     dogs = true;
     
-}   else if((curr == "harambe") || (curr == "gorilla")) { 
+} else if((curr == "inpiring") || (curr == "inspire") || (curr == "wolf") || (curr == "inspiring wolf") || (curr == "inspiring wolves")) { //check to see if the user wants dogs (and misspellings)
+    
+    Min = 0;
+    Max = inspiringWolvesLinks.length-1;
+    inspiringWolves = true;
+    
+} else if((curr == "insult") || (curr == "insultme") || (curr == "insult me")) { //check to see if the user wants dogs (and misspellings)
+    
+    Min = 0;
+    Max = insultMeLinks.length-1;
+    insultMe = true;
+    
+}  else if((curr == "harambe") || (curr == "gorilla")) { 
     
     Min = 0;
     Max = harambeLinks.length-1;
@@ -273,6 +316,9 @@ if(cats){
 } else if(presidential){
     link = "http://cdn.pinknews.co.uk/images/2016/11/obama-biden-meme-" + i + ".jpg";
     
+} else if(inspiringWolves) {
+    link = inspiringWolvesLinks[i];
+    
 } else if(badAdvice) {
     link = badAdviceLinks[i];
     
@@ -285,6 +331,9 @@ if(cats){
 } else if(harambe) {
     link = harambeLinks[i];
     
+} else if(insultMe) {
+    link = insultMeLinks[i];
+    
 } else if(doge) {
     link = dogelinks[i];
 
@@ -295,4 +344,4 @@ if(cats){
 say(link);
 
 wait(4000);
-say("Choices: cats, dogs, kermit the frog, presidential, harmabe, doge, first world problems, confession bear, bad advice, and random");
+say("Choices: cats, dogs, kermit the frog, presidential, insult me, inspiring wolves, harmabe, doge, first world problems, confession bear, bad advice, and random");
