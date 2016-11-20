@@ -2,12 +2,15 @@ call(+17347902224, { //call my phone number
    network:"SMS"}); //use SMS (Text message)
 //say("connected to 734-790-2224");
 //wait(2000);
+say("Options: cats, dogs, kermit, frog, presidential, bad advice, and other";
+
 var Min;
 var Max;
 var cats = false;
 var dogs = false;
 var presidential = false;
 var kermit = false;
+var badAdvice = false;
 var i;
 var link = "instantiated value"; //default string
 var kermitLinks = [
@@ -91,38 +94,64 @@ var doglinks = [
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/i-have-no-idea-what-Im-doing.jpg"
     ];
     
-    
-//say("instantiated all variables");
-//wait(2000);
+var badAdviceLinks = [
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-valentines-day-gift.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-tattoo-name.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-snap-your-fingers.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-save-relationship-baby.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-resist-arrest.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-no-offense.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-quick-exit-in-a-crowd.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-nature-valley-bar.jpg", 
+    "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-more-work-breaks.jpg", 
+    "http://www.memecenter.com/fun/992950/bad-advice-cat", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Bacon-Grease.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Calm-Down.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Facebook-Bikini-Photos.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Foreign-Person.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Haircut.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Hug.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Ice-Cream-Spoon.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Interview.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Jury-Duty-Felony.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-MeMe.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-MemeText.png", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Dont.png", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-microwave.jpg", 
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-no-Offense.jpg"
+];
 
-
-
-//say("look at initialtext");
-//wait(2000);
 
 var curr = currentCall.initialText
 curr.toLowerCase();
 curr.trim();
-if((curr == "cats") || (curr == "cat")){
+
+if ((curr == "cats") || (curr == "cat")){
     Min = 0;
     Max = catlinks.length-1;
     cats = true;
-} else if((curr == "dogs") || (curr == "dog")) {
+} 
+else if ((curr == "dogs") || (curr == "dog")) {
     Min = 0;
     Max = doglinks.length-1;
     dogs = true;
-} else if((curr == "kermit") || (curr == "frog")) {
+} 
+else if ((curr == "kermit") || (curr == "frog")) {
     Min = 0;
     Max = kermitLinks.length-1;
     kermit = true;
-} else if((curr == "presidential") || (curr == "presedential") || (curr == "presedintial") || (curr == "presedintial")) {
+} 
+else if ((curr == "presidential") || (curr == "presedential") || (curr == "presedintial") || (curr == "presedintial")) {
     Min = 1;
     Max = 17;
     presidential = true;
-    
-    
-    
-} else {
+}
+else if (curr == "advice" || curr == "bad advice" || curr == "bad") {
+    Min = 0;
+    Max = badAdvice.length-1;
+    badAdvice = true;
+} 
+else {
     Min = 10000000;
     Max = 73152994;
 }
@@ -134,26 +163,27 @@ i = Min + Math.floor((Math.random() * ((Max - Min) + 1))); //calc i
 
 
 
-if(cats){
+if (cats){
     link = catlinks[i];
 
-} else if(dogs){
+} 
+else if (dogs){
     link = doglinks[i];
-} else if(kermit){
+} 
+else if (kermit){
     link = kermitLinks[i];
-} else if(presidential){
+} 
+else if (presidential){
     link = "http://cdn.pinknews.co.uk/images/2016/11/obama-biden-meme-" + i + ".jpg";
     
-} else {
+} 
+else if (badAdvice) {
+    link = badAdvice[i];
+}
+else {
     link = "https://cdn.meme.am/cache/instances/folder994/500x/" + i + ".jpg";
 
 }
 
 
-
-//say("end");
-//wait(2000);
-
-//say(catlinks[i])
-//say(i); //debug info
 say(link);
