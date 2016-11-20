@@ -11,6 +11,7 @@ var kermit = false;  //is the user searching for kermit the frog memes?
 var badAdvice = false;  //is the user searching for bad advice memes?
 var doge = false;  //is the user searching for doge memes?
 var confessionBear = false;
+var firstWorldProblems = false;
 var random;  //the random number which links are based on
 var link = "instantiated value"; //default msg if it is not changed (error check)
 
@@ -28,6 +29,17 @@ var confessionBearLinks = [
     "http://images-cdn.9gag.com/photo/aRVxz05_700b_v1.jpg",];
 
 
+var firstWorldProblemsLinks = [
+    "http://s2.quickmeme.com/img/b7/b79805730d9b8c882959c0b1e99cbd0c5d998fff881372d89f9a7e003f52d94d.jpg",
+    "http://i0.kym-cdn.com/photos/images/facebook/000/267/477/82d.jpg",
+    "https://s-media-cache-ak0.pinimg.com/originals/57/b6/85/57b685f61325c83782a8ab6a973f4414.jpg",
+    "http://s2.quickmeme.com/img/90/909d670d1dc8eda35688c90b3eca957d4892faf9a69c08d713774638c6355bf8.jpg",
+    "https://cdn.meme.am/cache/instances/folder184/400x400/17484184.jpg",
+    "http://weknowmemes.com/wp-content/uploads/2012/10/first-world-kid-problems-laptop.jpg",
+    "http://img.memecdn.com/first-world-problems_o_525885.jpg",
+    "http://img.memecdn.com/first-world-problems_o_525888.jpg",
+    "http://cdn.smosh.com/sites/default/files/bloguploads/meme-fwp-5.jpg",
+    "https://s-media-cache-ak0.pinimg.com/736x/c5/2d/e2/c52de2afa485304c213d706041e22487.jpg"];
 
 
 var kermitLinks = [  //links to kermit memes
@@ -186,8 +198,15 @@ if((curr == "cats") || (curr == "cat")){
     Max = dogelinks.length-1;
     doge = true;
     
+//check to see if the user wants first world problems (and misspellings)    
+}   else if((curr == "first") || (curr == "world") || (curr == "problems") || (curr == "first world") || (curr == "world problems") || (curr == "first world problems")) { //check to see if the user wants doge (and misspellings)
+    
+    Min = 0;
+    Max = firstWorldProblemsLinks.length-1;
+    firstWorldProblems = true;
+    
 //check to see if the user wants kermit the frog (and misspellings)    
-} else if((curr == "kermit") || (curr == "frog") || (curr == "lipton") || (curr == "tea")){
+}else if((curr == "kermit") || (curr == "frog") || (curr == "kermit frog") || (curr == "kermit the frog") || (curr == "kermit the") || (curr == "lipton") || (curr == "tea")){
     
     Min = 0;
     Max = kermitLinks.length-1;
@@ -236,6 +255,9 @@ if(cats){
 } else if(badAdvice) {
     link = badAdviceLinks[i];
     
+} else if(firstWorldProblems) {
+    link = firstWorldProblemsLinks[i];
+    
 } else if(confessionBear) {
     link = confessionBearLinks[i];
     
@@ -249,4 +271,4 @@ if(cats){
 say(link);
 
 wait(4000);
-say("Options: cats, dogs, kermit, frog, presidential, doge, confession bear, bad advice, and random");
+say("Choices: cats, dogs, kermit the frog, presidential, doge, first world problems, confession bear, bad advice, and random");
