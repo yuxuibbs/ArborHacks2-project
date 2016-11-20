@@ -14,6 +14,7 @@ var confessionBear = false;
 var firstWorldProblems = false;
 var insultMe = false;
 var harambe = false;
+var iToLikeToLiveDangerously = false;
 var inspiringWolves = false;
 var oneDoesNotSimply = false;
 var random;  //the random number which links are based on
@@ -35,9 +36,23 @@ var oneDoesNotSimplyLinks = [
     "https://i.imgflip.com/77hai.jpg",
     "https://breakingintotheadvertisingworld.files.wordpress.com/2014/12/meme-2.jpg",
     "https://s-media-cache-ak0.pinimg.com/236x/3e/f8/94/3ef89421c371bed0dac93efdcbe07d25.jpg",
-    "https://s-media-cache-ak0.pinimg.com/originals/e6/d9/1c/e6d91c68d2a53f61b4af5c31181e83dd.jpg"];
+    "https://s-media-cache-ak0.pinimg.com/originals/e6/d9/1c/e6d91c68d2a53f61b4af5c31181e83dd.jpg",
+    "http://img.memecdn.com/i-also-like-to-live-dangerously_o_1076620.jpg"];
 
-
+var iToLikeToLiveDangerouslyLinks = [
+    "http://img.memecdn.com/i-too-also-like-to-live-dangerously_o_1625533.jpg",
+    "http://s2.quickmeme.com/img/2e/2ed8bbd970126d27e49861d984bcccbfa9066b3c1e211daa8285924f3bdca626.jpg",
+    "http://www.kappit.com/img/pics/201506_0951_icihi_sm.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/46/03/6e/46036eb942f8f2448317f346185f7698.jpg",
+    "https://cdn.meme.am/instances/65623948.jpg",
+    "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRZoyaJq-H-9Z-O_aeHFACdQg2GTRoyt8E0vBIYD6PbShfNZvo",
+    "https://i.imgflip.com/rcwll.jpg",
+    "https://i.imgflip.com/5riz4.jpg",
+    "http://s.quickmeme.com/img/6b/6b757b63cd508db22154ed39098603a707ea33c1b297f79f6d8df50e3e671063.jpg",
+    "http://i1.kym-cdn.com/photos/images/facebook/000/511/961/bb0.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/14/8b/b9/148bb92b0f658616068a1c522f6fb014.jpg",
+    "http://i2.kym-cdn.com/photos/images/list/000/577/232/c38.jpeg",
+    "http://images.memes.com/meme/254597"];
 
 var harambeLinks = [
     "https://thoughtcatalog.files.wordpress.com/2016/08/hp860uf.jpg?w=675",
@@ -270,6 +285,12 @@ if((curr == "cats") || (curr == "cat")){
     Max = insultMeLinks.length-1;
     insultMe = true;
     
+}else if((curr == "live dangerously") || (curr == "i also like to live dangerously") || (curr == "i to like to live dangerously") || (curr == "i to like")) { //check to see if the user wants dogs (and misspellings)
+    
+    Min = 0;
+    Max = iToLikeToLiveDangerouslyLinks.length-1;
+    iToLikeToLiveDangerously = true;
+    
 }  else if((curr == "one does not simply") || (curr == "one") || (curr == "not simply") || (curr == "one does not")) { //check to see if the user wants dogs (and misspellings)
     
     Min = 0;
@@ -349,6 +370,9 @@ if(cats){
 } else if(badAdvice) {
     link = badAdviceLinks[i];
     
+} else if(iToLikeToLiveDangerously) {
+    link = iToLikeToLiveDangerouslyLinks[i];
+    
 } else if(firstWorldProblems) {
     link = firstWorldProblemsLinks[i];
     
@@ -374,6 +398,6 @@ if(cats){
 say(link);
 
 wait(5000);
-say("Choices: cats, dogs, kermit the frog, presidential, one does not simply, insult me");
+say("Choices: cats, dogs, kermit the frog, presidential, one does not simply, I to like to live dangerously, insult me");
 wait(1500);
 say("inspiring wolves, harmabe, doge, first world problems, confession bear, bad advice, and random");
