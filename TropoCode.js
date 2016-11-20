@@ -7,8 +7,23 @@ var Max;
 var cats = false;
 var dogs = false;
 var presidential = false;
+var kermit = false;
 var i;
 var link = "instantiated value"; //default string
+var kermitLinks = [
+   "http://scontent-b.cdninstagram.com/hphotos-xfp1/t51.2885-15/10488613_262644750609036_1331187894_n.jpg",
+   "http://www.sawyoo.com/postpic/2009/10/lipton-tea-kermit-meme_351598.jpg" ,
+   "http://www.sawyoo.com/postpic/2009/10/kermit-the-frog-drinking-tea-memes_351608.png",
+   "http://www.thaproducesection.com/wp-content/uploads/2014/07/kermit3.png",
+   "http://e.lvme.me/uc9tf35.jpg",
+   "http://i2.cdn.turner.com/dr/hln/www/release/sites/default/files/static/images/AnnaL/kermitshade.jpg",
+   "https://i.imgflip.com/tgt9d.jpg",
+   "https://s-media-cache-ak0.pinimg.com/736x/d6/04/93/d604936eaa5617d798cd9ece56c028f1.jpg",
+   "https://s-media-cache-ak0.pinimg.com/736x/fb/54/80/fb5480c3a220d354faf7c7b746bbd283.jpg",
+   "https://i.imgflip.com/er9r4.jpg",
+   "http://thumbpress.com/wp-content/uploads/2014/08/funny-tea-Kermit-business-money1.jpg",
+   "http://67.media.tumblr.com/27d09d3382557592fb3e7dc386595bfb/tumblr_n7u5zlzYDW1sxym1zo1_1280.jpg"];
+   
 var catlinks = [
     "http://www.lolcats.com/images/u/11/45/lolcatsdotcom3gp6wm7dw3jihq9t.jpg"  ,
     "http://www.lolcats.com/images/u/08/50/lolcatsdotcomur5dhkw464f8hb16.jpg"  ,
@@ -96,6 +111,10 @@ if((curr == "cats") || (curr == "cat")){
     Min = 0;
     Max = doglinks.length-1;
     dogs = true;
+} else if((curr == "kermit") || (curr == "frog")) {
+    Min = 0;
+    Max = kermitLinks.length-1;
+    kermit = true;
 } else if((curr == "presidential") || (curr == "presedential") || (curr == "presedintial") || (curr == "presedintial")) {
     Min = 1;
     Max = 17;
@@ -120,7 +139,8 @@ if(cats){
 
 } else if(dogs){
     link = doglinks[i];
-
+} else if(kermit){
+    link = kermitLinks[i];
 } else if(presidential){
     link = "http://cdn.pinknews.co.uk/images/2016/11/obama-biden-meme-" + i + ".jpg";
     
