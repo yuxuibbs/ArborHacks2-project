@@ -12,8 +12,23 @@ var badAdvice = false;  //is the user searching for bad advice memes?
 var doge = false;  //is the user searching for doge memes?
 var confessionBear = false;
 var firstWorldProblems = false;
+var harambe = false;
 var random;  //the random number which links are based on
 var link = "instantiated value"; //default msg if it is not changed (error check)
+
+var harambeLinks = [
+    "https://thoughtcatalog.files.wordpress.com/2016/08/hp860uf.jpg?w=675",
+    "http://i.imgur.com/Jod1Yvjl.jpg",
+    "http://a2.files.maxim.com/image/upload/c_fit,cs_srgb,dpr_1.0,q_80,w_620/MTQwOTgzNDcwNTI3NjIwNDcy.jpg",
+    "https://s3.amazonaws.com/hiphopdx-production/2016/06/HarambeKanye.jpg",
+    "http://thacelebritea.com/wp-content/uploads/2016/08/15427l.jpg",
+    "http://i2.kym-cdn.com/photos/images/original/001/129/303/6e1.jpg",
+    "https://i.guim.co.uk/img/media/0e7c0bac09562f18663efdac68c9ef4e93e713f8/0_0_592_458/master/592.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=ed6e707a58da89b45a5bf0c627388379",
+    "https://s3.amazonaws.com/hiphopdx-production/2016/06/HarambeCavemanSB1.jpg",
+    "http://i.iheart.com/v3/url/aHR0cDovL2NvbnRlbnQuY2xlYXJjaGFubmVsLmNvbS9jYy1jb21tb24vbWxpYi83MDAvMDYvNzAwXzE0NjQ4ODk1MjEyLmpwZw==?ops=maxcontain(750,473),quality(80)",
+    "http://pixel.nymag.com/imgs/daily/selectall/2016/07/27/harambe_meme_001.nocrop.w536.h2147483647.jpg",
+    "http://i1.kym-cdn.com/photos/images/facebook/001/152/053/cf7.png",
+    "https://bossip.files.wordpress.com/2016/06/praiseteam.png?w=551&h=440"];
 
 
 var confessionBearLinks = [
@@ -191,8 +206,14 @@ if((curr == "cats") || (curr == "cat")){
     Max = doglinks.length-1;
     dogs = true;
     
+}   else if((curr == "harambe") || (curr == "gorilla")) { 
+    
+    Min = 0;
+    Max = harambeLinks.length-1;
+    harambe = true;
+    
 //check to see if the user wants doge (and misspellings)
-}  else if((curr == "doge") || (curr == "doges")) { //check to see if the user wants doge (and misspellings)
+}else if((curr == "doge") || (curr == "doges")) { //check to see if the user wants doge (and misspellings)
     
     Min = 0;
     Max = dogelinks.length-1;
@@ -261,6 +282,9 @@ if(cats){
 } else if(confessionBear) {
     link = confessionBearLinks[i];
     
+} else if(harambe) {
+    link = harambeLinks[i];
+    
 } else if(doge) {
     link = dogelinks[i];
 
@@ -271,4 +295,4 @@ if(cats){
 say(link);
 
 wait(4000);
-say("Choices: cats, dogs, kermit the frog, presidential, doge, first world problems, confession bear, bad advice, and random");
+say("Choices: cats, dogs, kermit the frog, presidential, harmabe, doge, first world problems, confession bear, bad advice, and random");
