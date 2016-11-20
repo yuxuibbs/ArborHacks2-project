@@ -1,19 +1,18 @@
 call(+17347902224, { //call my phone number
    network:"SMS"}); //use SMS (Text message)
-//say("connected to 734-790-2224");
-//wait(2000);
-say("Options: cats, dogs, kermit, frog, presidential, bad advice, and other";
 
-var Min;
-var Max;
-var cats = false;
-var dogs = false;
-var presidential = false;
-var kermit = false;
-var badAdvice = false;
-var i;
-var link = "instantiated value"; //default string
-var kermitLinks = [
+
+var Min;  //bottom random number value
+var Max;  //top random number value
+var cats = false;  //is the user searching for cat memes?
+var dogs = false;  //is the user searching for dog memes?
+var presidential = false;  //is the user searching for presidential memes?
+var kermit = false;  //is the user searching for kermit the frog memes?
+var badAdvice = false;  //is the user searching for bad advice memes?
+var random;  //the random number which links are based on
+var link = "instantiated value"; //default msg if it is not changed (error check)
+
+var kermitLinks = [  //links to kermit memes
    "http://scontent-b.cdninstagram.com/hphotos-xfp1/t51.2885-15/10488613_262644750609036_1331187894_n.jpg",
    "http://www.sawyoo.com/postpic/2009/10/lipton-tea-kermit-meme_351598.jpg" ,
    "http://www.sawyoo.com/postpic/2009/10/kermit-the-frog-drinking-tea-memes_351608.png",
@@ -27,7 +26,7 @@ var kermitLinks = [
    "http://thumbpress.com/wp-content/uploads/2014/08/funny-tea-Kermit-business-money1.jpg",
    "http://67.media.tumblr.com/27d09d3382557592fb3e7dc386595bfb/tumblr_n7u5zlzYDW1sxym1zo1_1280.jpg"];
    
-var catlinks = [
+var catlinks = [  //links to cat memes
     "http://www.lolcats.com/images/u/11/45/lolcatsdotcom3gp6wm7dw3jihq9t.jpg"  ,
     "http://www.lolcats.com/images/u/08/50/lolcatsdotcomur5dhkw464f8hb16.jpg"  ,
     "http://www.lolcats.com/images/u/08/42/lolcatsdotcom2ej0ezv4iv55y3ke.jpg"  ,
@@ -42,7 +41,12 @@ var catlinks = [
     "http://www.lolcats.com/images/u/12/24/lolcatsdotcom-found-it.jpg"         ,
     "http://www.lolcats.com/images/u/08/28/lolcatsdotcomfmjonvyyl03qg704.jpg"  ,
     "http://www.lolcats.com/images/u/11/46/lolcatsdotcomqc2oos4nrd7aymcl.jpg"];
-var doglinks = [
+    
+
+    
+    
+    
+var doglinks = [  //links to dog memes
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/plane-dog-meme.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-math-meme.jpg",
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/dog-memes.jpg",
@@ -94,7 +98,7 @@ var doglinks = [
     "http://tpwwllc.wpengine.com/images/blogphotos/Funny/Dog%20Memes/i-have-no-idea-what-Im-doing.jpg"
     ];
     
-var badAdviceLinks = [
+var badAdviceLinks = [  //links to bad advice memes
     "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-valentines-day-gift.jpg", 
     "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-tattoo-name.jpg", 
     "http://runt-of-the-web.com/wordpress/wp-content/uploads/2013/03/malicious-advice-mallard-snap-your-fingers.jpg", 
@@ -118,40 +122,46 @@ var badAdviceLinks = [
     "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-MemeText.png", 
     "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-Dont.png", 
     "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-microwave.jpg", 
-    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-no-Offense.jpg"
-];
+    "http://ruinmyweek.com/wp-content/uploads/2016/05/the-best-funny-pictures-of-malicious-advice-mallard-meme-no-Offense.jpg"];
 
+//curr is a string recieved from the user via SMS
+var curr = currentCall.initialText;
+curr = curr.toLowerCase();  //make curr all lower case
+curr = curr.trim();  //make curr have no whitespace
 
-var curr = currentCall.initialText
-curr.toLowerCase();
-curr.trim();
-
-if ((curr == "cats") || (curr == "cat")){
-    Min = 0;
+//check to see if the user wants cats (and misspellings)
+if((curr == "cats") || (curr == "cat")){
+    
+    Min = 0;  //
     Max = catlinks.length-1;
     cats = true;
-} 
-else if ((curr == "dogs") || (curr == "dog")) {
+    
+//check to see if the user wants dogs (and misspellings)
+} else if((curr == "dogs") || (curr == "dog")) { //check to see if the user wants dogs (and misspellings)
+    
     Min = 0;
     Max = doglinks.length-1;
     dogs = true;
-} 
-else if ((curr == "kermit") || (curr == "frog")) {
+    
+//check to see if the user wants kermit the frog (and misspellings)
+} else if((curr == "kermit") || (curr == "frog") || (curr == "lipton") || (curr == "tea")){
+    
     Min = 0;
     Max = kermitLinks.length-1;
     kermit = true;
-} 
-else if ((curr == "presidential") || (curr == "presedential") || (curr == "presedintial") || (curr == "presedintial")) {
+
+//check to see if the user wants dogs (and misspellings)
+} else if((curr == "president") || (curr == "presedent") || (curr == "obama")|| (curr == "barack") || (curr == "joe") || (curr == "biden") || (curr == "presidential") || (curr == "presedential") || (curr == "presedintial") || (curr == "presedintial")) {
+    
     Min = 1;
     Max = 17;
     presidential = true;
-}
-else if (curr == "advice" || curr == "bad advice" || curr == "bad") {
+    
+} else if (curr == "advice" || curr == "bad advice" || curr == "bad") {
     Min = 0;
-    Max = badAdvice.length-1;
+    Max = badAdviceLinks.length-1;
     badAdvice = true;
-} 
-else {
+}  else {
     Min = 10000000;
     Max = 73152994;
 }
@@ -163,27 +173,26 @@ i = Min + Math.floor((Math.random() * ((Max - Min) + 1))); //calc i
 
 
 
-if (cats){
+if(cats){
     link = catlinks[i];
 
-} 
-else if (dogs){
+} else if(dogs){
     link = doglinks[i];
-} 
-else if (kermit){
+
+} else if(kermit){
     link = kermitLinks[i];
-} 
-else if (presidential){
+    
+} else if(presidential){
     link = "http://cdn.pinknews.co.uk/images/2016/11/obama-biden-meme-" + i + ".jpg";
     
-} 
-else if (badAdvice) {
-    link = badAdvice[i];
-}
-else {
+} else if(badAdvice) {
+    link = badAdviceLinks[i];
+    
+} else {
     link = "https://cdn.meme.am/cache/instances/folder994/500x/" + i + ".jpg";
 
 }
-
-
 say(link);
+
+wait(2000);
+say("Options: cats, dogs, kermit, frog, presidential, bad advice, and random");
