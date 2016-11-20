@@ -10,8 +10,27 @@ var presidential = false;  //is the user searching for presidential memes?
 var kermit = false;  //is the user searching for kermit the frog memes?
 var badAdvice = false;  //is the user searching for bad advice memes?
 var doge = false;  //is the user searching for doge memes?
+var vonfessionBear = false;
 var random;  //the random number which links are based on
 var link = "instantiated value"; //default msg if it is not changed (error check)
+
+
+var confessionBearLinks = [
+    "http://s2.quickmeme.com/img/f3/f30a136a3909f20ce1d38a64436ef477adc938b480e8253179d3378f890cfbcc.jpg",
+    "http://img.memecdn.com/confession-bear_o_1016916.jpg",
+    "http://icdn4.digitaltrends.com/image/confession-bear-murder-641x485.png",
+    "http://1mut.com/wp-content/uploads/2012/08/Confession-Bear-meme-collection-1mut.com-24.jpg",
+    "http://i3.kym-cdn.com/photos/images/masonry/000/724/353/4fb.jpg",
+    "http://images-cdn.9gag.com/photo/apBzREp_700b.jpg",
+    "http://s2.quickmeme.com/img/a6/a6ad3f8472caa777f2b83c2ea18ab078927c56ceeba5ea39ed1715453d948307.jpg",
+    "http://2damnfunny.com/wp-content/uploads/2013/07/Confession-Bear-Meme-Is-Actually-A-Very-Worried-Bear-Cub.jpg",
+    "http://1mut.com/wp-content/uploads/2012/08/Confession-Bear-meme-collection-1mut.com-18.jpg",
+    "http://images-cdn.9gag.com/photo/aRVxz05_700b_v1.jpg",
+    
+    
+    
+    ];
+
 
 var kermitLinks = [  //links to kermit memes
    "http://scontent-b.cdninstagram.com/hphotos-xfp1/t51.2885-15/10488613_262644750609036_1331187894_n.jpg",
@@ -183,7 +202,13 @@ if((curr == "cats") || (curr == "cat")){
     Max = 17;
     presidential = true;
     
-} else if (curr == "advice" || curr == "bad advice" || curr == "bad") {
+} else if((curr = "confession") || (curr = "bear") || (curr = "confession bear")) {
+    
+    Min = 1;
+    Max = confessionBearLinks.length-1;
+    confessionBear = true;
+    
+}else if (curr == "advice" || curr == "bad advice" || curr == "bad") {
     Min = 0;
     Max = badAdviceLinks.length-1;
     badAdvice = true;
@@ -214,6 +239,9 @@ if(cats){
 } else if(badAdvice) {
     link = badAdviceLinks[i];
     
+} else if(confessionBear) {
+    link = confessionBearLinks[i];
+    
 } else if(doge) {
     link = dogelinks[i];
 
@@ -224,4 +252,4 @@ if(cats){
 say(link);
 
 wait(4000);
-say("Options: cats, dogs, kermit, frog, presidential, doge, bad advice, and random");
+say("Options: cats, dogs, kermit, frog, presidential, doge, confession bear, bad advice, and random");
