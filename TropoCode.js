@@ -1,7 +1,3 @@
-call(+17347902224, { //call my phone number
-   network:"SMS"}); //use SMS (Text message)
-
-
 var Min;  //bottom random number value
 var Max;  //top random number value
 var cats = false;  //is the user searching for cat memes?
@@ -61,7 +57,6 @@ var harambeLinks = [
     "https://s3.amazonaws.com/hiphopdx-production/2016/06/HarambeKanye.jpg",
     "http://thacelebritea.com/wp-content/uploads/2016/08/15427l.jpg",
     "http://i2.kym-cdn.com/photos/images/original/001/129/303/6e1.jpg",
-    "https://i.guim.co.uk/img/media/0e7c0bac09562f18663efdac68c9ef4e93e713f8/0_0_592_458/master/592.jpg?w=620&q=55&auto=format&usm=12&fit=max&s=ed6e707a58da89b45a5bf0c627388379",
     "https://s3.amazonaws.com/hiphopdx-production/2016/06/HarambeCavemanSB1.jpg",
     "http://i.iheart.com/v3/url/aHR0cDovL2NvbnRlbnQuY2xlYXJjaGFubmVsLmNvbS9jYy1jb21tb24vbWxpYi83MDAvMDYvNzAwXzE0NjQ4ODk1MjEyLmpwZw==?ops=maxcontain(750,473),quality(80)",
     "http://pixel.nymag.com/imgs/daily/selectall/2016/07/27/harambe_meme_001.nocrop.w536.h2147483647.jpg",
@@ -398,6 +393,6 @@ if(cats){
 say(link);
 
 wait(5000);
-say("Choices: cats, dogs, kermit the frog, presidential, one does not simply, I to like to live dangerously, insult me");
+say("Choices: cats, dogs, kermit the frog, presidential, one does not simply, I too like to live dangerously, insult me");
 wait(1500);
 say("inspiring wolves, harmabe, doge, first world problems, confession bear, bad advice, and random");
