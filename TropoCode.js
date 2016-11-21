@@ -336,8 +336,8 @@ if((curr == "cats") || (curr == "cat")){
     Max = badAdviceLinks.length-1;
     badAdvice = true;
 }  else {
-    Min = 10000000;
-    Max = 73152994;
+    Min = 1000000;
+    Max = 1281868;
 }
 
 
@@ -387,9 +387,13 @@ if(cats){
     link = dogelinks[i];
 
 }else {
-    link = "https://cdn.meme.am/cache/instances/folder994/500x/" + i + ".jpg";
+    link = "http://images.memes.com/meme/" + i;
+    say("I do not know about that KeyWord, here is a random meme for you instead");
+} 
+wait(1500);
+say("Disclaimer --- The majority of these links have not been checked for appropriateness");
+wait(2000);
 
-}
 say(link);
 
 wait(5000);
